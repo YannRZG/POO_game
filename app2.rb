@@ -25,6 +25,18 @@ puts "Vous disposez de #{user.life_point}pv, battez-les !"
 puts " "
 
 puts "Quelle action veux-tu effectuer ?"
+puts "Quelle action veux-tu effectuer ?
+a - chercher une meilleure arme
+s - chercher à se soigner
+attaquer un joueur en vue :
+0 - #{player1.player_name} a #{player1.life_point} points de vie
+1 - #{player2.player_name} a #{player2.life_point} points de vie"
+print "> "
+choice = gets.chomp
+case choice
+when 'a' then 
+end
+
 
 
 
