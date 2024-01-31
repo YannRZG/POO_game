@@ -26,33 +26,47 @@ puts " "
 puts "Vous disposez de #{user.life_point}pv, battez-les !"
 puts " "
 
+while user.life_point > 0 && (player1.life_point > 0 || player2.life_point > 0) 
 #Menu d'interactions
-puts "Quelle action veux-tu effectuer ?"
+
 puts "Quelle action veux-tu effectuer ?
-a - chercher une meilleure arme
-s - chercher à se soigner
-attaquer un joueur en vue :
+
+a - Chercher une meilleure arme
+s - Chercher à se soigner
+Attaquer un joueur en vue :
 0 - #{player1.player_name} a #{player1.life_point} points de vie
 1 - #{player2.player_name} a #{player2.life_point} points de vie"
 print "> "
 choice = gets.chomp
-case choice
-when 'a' 
+
+    if choice == 'a' 
     user.search_weapon 
     
-when 's'
+    elsif choice == 's'
     user.search_heal
+    
+    elsif choice == '0' && player1.life_point > 0
+    user.attacks(player1)
+
+    elsif choice == '1' && player2.life_point > 0
+    user.attacks(player2)
+    
+    end
+
+    if player1.life_point <= 0 && player2.life_point <= 0
+        break
+    elsif player1.life_point > 0
+        puts " "
+        puts player1.attacks(user)
+    elsif player2.life_point > 0
+        puts " "
+        puts player2.attacks(user)
+    end
+
+
 end
+    
 
 
 
 
-
-# while humanplayer.life_point > 0 && (player1.life_point > 0 || player2.life_point > 0) 
-# end
-    #puts player_name.show_state
-
-
-
-
-#binding.pry

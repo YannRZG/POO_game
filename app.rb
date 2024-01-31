@@ -4,8 +4,8 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-player1 = Player.new("José", 10)
-player2 = Player.new("Jean", 10)
+player1 = Player.new("José")
+player2 = Player.new("Jean")
 
 
 while player1.life_point > 0 && player2.life_point > 0 do
@@ -23,4 +23,3 @@ break if player2.life_point == 0 || player1.life_point == 0
 
 end
 
-binding.pry

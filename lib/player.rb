@@ -31,7 +31,7 @@ class Player
         puts "#{@player_name} attaque #{player_to_attack.player_name} !"
         damage = compute_damage 
         
-        puts "Il/elle lui inflige #{damage} points de dégats !"
+        puts "Il/elle vous inflige #{damage} points de dégats !"
         player_to_attack.gets_damage(damage)
     end
 
@@ -82,7 +82,7 @@ class HumanPlayer < Player
     def search_heal
         heal_pack = rand(1..6)
         new_life_point = @life_point + heal_pack 
-        if heal_pack == 1 
+        if heal_pack == 1  
             puts "C'est chaud mon reuf y'a pas de soin en vue.."
         elsif heal_pack.between?(2, 5) 
             puts "Tié un bon le sang ! Tu as trouvé un pack de 50pv."
@@ -91,6 +91,7 @@ class HumanPlayer < Player
         else new_life_point == 100
             puts "Full life mon gros !"
         end
+        
     end
     
 end
