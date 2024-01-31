@@ -10,10 +10,12 @@ class Player
         @life_point = 10
     end 
 
+    #Méthode pour montrer les points de vie
     def show_state
         puts "> #{@player_name} a #{@life_point} points de vie."
     end
-
+    
+    #Méthode pour que les PNJ recoivent les dégats
     def gets_damage(damage)
          @life_point -= damage
         if @life_point <= 0
@@ -23,7 +25,7 @@ class Player
         end
     end
     
-    
+    # Méthode pour les attaques entres PNJ
     def attacks(player_to_attack)
         
         puts "#{@player_name} attaque #{player_to_attack.player_name} !"
@@ -50,11 +52,12 @@ class HumanPlayer < Player
 
     end
 
+    # Méthode pour montrer les points de vie et le niveaur de l'arme actuelle
     def show_state
         print "> #{@player_name} a #{@life_point} points de vie et une arme de niveau #{@weapon_level}."
     end
     
-    
+    #Méthode pour chercher une nouvelle arme
     def search_weapon
         new_weapon_level = rand(1..6)
         
@@ -69,25 +72,13 @@ class HumanPlayer < Player
         end
     end
     
-
+    #Modification du niveau de l'arme
     def compute_damage
         rand(1..6) * @weapon_level
     end
 
-    # def search_heal
-    #     new_life_point = @life_point + heal_pack 
-    #     heal_pack = rand(1..6)
-    #     if heal_pack == 1 
-    #         puts "C'est chaud mon reuf y'a pas de soin en vue.."
-    #     elsif heal_pack.between?(2, 5) 
-    #         puts "Tié un bon le sang ! Tu as trouvé un pack de 50pv."
-    #     elsif heal_pack == 6
-    #         puts "POUAAAH t'es bon ! 80pv gratuit dans ton frigo !"
-    #         puts "Full life mon gros !"
-    #     else new_life_point
-    #     end
-    # end
-
+   
+    #Méthode de recherche de pack de soins
     def search_heal
         heal_pack = rand(1..6)
         new_life_point = @life_point + heal_pack 
